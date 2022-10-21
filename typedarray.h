@@ -11,7 +11,7 @@
  * void     int_array_free(int_array_t* list);
  * void     int_array_push(int_array_t* list, int elt);
  * int      int_array_get (int_array_t* list, unsigned index, int* elt);
- * void     int_array_set (int_array_t* list, unsigned index, int elt);
+ * int      int_array_set (int_array_t* list, unsigned index, int elt);
  * int      int_array_rem (int_array_t* list, unsigned index, int* elt);
  * void     int_array_ins (int_array_t* list, unsigned index, int elt);
  * int      int_array_pop (int_array_t* list, int* elt);
@@ -143,9 +143,12 @@
     }                                                               \
   }                                                                 \
                                                                     \
-  void COMBINE(prefix, set)(COMBINE(prefix, t)* list, unsigned index, T elt) {\
+  int COMBINE(prefix, set)(COMBINE(prefix, t)* list, unsigned index, T elt) {\
     if (index < list->count) {                                      \
       list->list[ index ] = elt;                                    \
+      return 0;                                                     \
+    } else {                                                        \
+      return ~0;                                                    \
     }                                                               \
   }                                                                 \
                                                                     \

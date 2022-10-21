@@ -37,11 +37,16 @@ I typically use this code in the following fashion
     void     vec_array_init(vec_array_t* list);
     void     vec_array_free(vec_array_t* list);
     void     vec_array_push(vec_array_t* list, vec_t elt);
-    vec_t    vec_array_get (vec_array_t* list, unsigned index, vec* elt);
+    int      vec_array_get (vec_array_t* list, unsigned index, vec* elt);
     void     vec_array_set (vec_array_t* list, unsigned index, vec_t elt);
-    vec_t    vec_array_rem (vec_array_t* list, unsigned index, vec* elt);
+    int      vec_array_rem (vec_array_t* list, unsigned index, vec* elt);
     void     vec_array_ins (vec_array_t* list, unsigned index, vec_t elt);
-    vec_t    vec_array_pop (vec_array_t* list, vec* elt);
-    vec_t    vec_array_peek(vec_array_t* list, vec* elt);
+    int      vec_array_pop (vec_array_t* list, vec* elt);
+    int      vec_array_peek(vec_array_t* list, vec* elt);
     unsigned vec_array_size(vec_array_t* list);
 ```
+
+Note a few things:
+
+- Functions that return 'int' will return zero for success, non-zero for failure.
+- Functions that somehow fail to malloc() or realloc() will abort() (perhaps I should make that optional).

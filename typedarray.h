@@ -43,7 +43,7 @@
   extern                                                            \
   int COMBINE(prefix, get)(COMBINE(prefix, t)* list, unsigned index, T* elt);\
   extern                                                            \
-  void COMBINE(prefix, set)(COMBINE(prefix, t)* list, unsigned index, T elt);\
+  int COMBINE(prefix, set)(COMBINE(prefix, t)* list, unsigned index, T elt);\
   extern                                                            \
   int COMBINE(prefix, rem)(COMBINE(prefix, t)* list, unsigned index, T* elt);\
   extern                                                            \

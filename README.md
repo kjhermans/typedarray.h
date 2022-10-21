@@ -6,20 +6,20 @@ I typically use this code in the following fashion
 
 1) Create a file vectorarray.h, with in it:
 
-#ifndef _VECTORARRAY_H_
-#define _VECTORARRAY_H_
-
-typedef struct {
-  void* ptr;
-  unsigned size;
-}
-vec_t;
-
-#include <typedarray.h>
-
-MAKE_ARRAY_HEADER(vec_t, vec_array_)
-
-#endif
+    #ifndef _VECTORARRAY_H_
+    #define _VECTORARRAY_H_
+    
+    typedef struct {
+      void* ptr;
+      unsigned size;
+    }
+    vec_t;
+    
+    #include <typedarray.h>
+    
+    MAKE_ARRAY_HEADER(vec_t, vec_array_)
+    
+    #endif
 
 
 

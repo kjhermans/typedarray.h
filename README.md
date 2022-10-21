@@ -38,7 +38,7 @@ I typically use this code in the following fashion
     void     vec_array_free(vec_array_t* list);
     void     vec_array_push(vec_array_t* list, vec_t elt);
     int      vec_array_get (vec_array_t* list, unsigned index, vec* elt);
-    void     vec_array_set (vec_array_t* list, unsigned index, vec_t elt);
+    int      vec_array_set (vec_array_t* list, unsigned index, vec_t elt);
     int      vec_array_rem (vec_array_t* list, unsigned index, vec* elt);
     void     vec_array_ins (vec_array_t* list, unsigned index, vec_t elt);
     int      vec_array_pop (vec_array_t* list, vec* elt);

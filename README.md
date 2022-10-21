@@ -31,4 +31,17 @@ I typically use this code in the following fashion
 ```
 
 
-3) Pull vectorarray.o into your Makefile.
+3) Compile vectorarray.c into your project,
+   and the following functions will be available:
+```
+    void     vec_array_init(vec_array_t* list);
+    void     vec_array_free(vec_array_t* list);
+    void     vec_array_push(vec_array_t* list, vec_t elt);
+    vec_t    vec_array_get (vec_array_t* list, unsigned index, vec* elt);
+    void     vec_array_set (vec_array_t* list, unsigned index, vec_t elt);
+    vec_t    vec_array_rem (vec_array_t* list, unsigned index, vec* elt);
+    void     vec_array_ins (vec_array_t* list, unsigned index, vec_t elt);
+    vec_t    vec_array_pop (vec_array_t* list, vec* elt);
+    vec_t    vec_array_peek(vec_array_t* list, vec* elt);
+    unsigned vec_array_size(vec_array_t* list);
+```

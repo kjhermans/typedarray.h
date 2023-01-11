@@ -24,6 +24,14 @@
 
 #define COMBINE(a, b) a##b
 
+/**
+ * Define ARRAY_EQUALS if you have, for example, strings.
+ */
+
+#ifndef ARRAY_EQUALS
+#define ARRAY_EQUALS(a,b) (a == b)
+#endif
+
 #define MAKE_ARRAY_HEADER(T, prefix)                                \
   typedef struct {                                                  \
     T*        list;                                                 \
@@ -42,6 +50,8 @@
   int COMBINE(prefix, pop)(COMBINE(prefix, t)* list, T* elt);       \
   extern                                                            \
   int COMBINE(prefix, get)(COMBINE(prefix, t)* list, unsigned index, T* elt);\
+  extern                                                            \
+  int COMBINE(prefix, has)(COMBINE(prefix, t)* list, T elt);        \
   extern                                                            \
   int COMBINE(prefix, set)(COMBINE(prefix, t)* list, unsigned index, T elt);\
   extern                                                            \
@@ -114,6 +124,15 @@
     } else {                                                        \
       return ~0;                                                    \
     }                                                               \
+  }                                                                 \
+                                                                    \
+  int COMBINE(prefix, has)(COMBINE(prefix, t)* list, T elt) {       \
+    for (unsigned i=0; i < list->count; i++) {                      \
+      if (ARRAY_EQUALS(list->list[ i ], elt)) {                     \
+        return 1;                                                   \
+      }                                                             \
+    }                                                               \
+    return 0;                                                       \
   }                                                                 \
                                                                     \
   int COMBINE(prefix, rem)(COMBINE(prefix, t)* list, unsigned index, T* elt) {\
